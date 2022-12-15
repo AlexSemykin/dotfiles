@@ -42,11 +42,11 @@ module.exports = {
     'vlc',
   ],
   gem: [
-    'mdless'
+    'mdless',
   ],
   npm: [
     'prettyjson',
     'vtop',
-    'tldr'  //https://tldr.sh/
+    'tldr',  //https://tldr.sh/
   ]
 };
