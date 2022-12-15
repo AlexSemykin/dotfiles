@@ -273,7 +273,7 @@ function osConfiguration(){
     sudo systemsetup -setrestartfreeze on;ok
 
     running "Never go into computer sleep mode"
-    sudo systemsetup -setcomputersleep Off > /dev/null;ok
+    #sudo systemsetup -setcomputersleep Off > /dev/null;ok
 
     running "Check for software updates daily, not just once per week"
     defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1;ok
@@ -292,10 +292,10 @@ function osConfiguration(){
     bot "Trackpad, mouse, keyboard, Bluetooth accessories, and input"
     ###############################################################################
 
-    #running "Trackpad: enable tap to click for this user and for the login screen"
-    #defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-    #defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-    #defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1;ok
+    running "Trackpad: enable tap to click for this user and for the login screen"
+    defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+    defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+    defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1;ok
 
     running "Trackpad: map bottom right corner to right-click"
     #defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
@@ -303,8 +303,8 @@ function osConfiguration(){
     #defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
     #defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true;ok
 
-    #running "Disable 'natural' (Lion-style) scrolling"
-    #defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false;ok
+    running "Disable 'natural' (Lion-style) scrolling"
+    defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false;ok
 
     #running "Increase sound quality for Bluetooth headphones/headsets"
     #defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40;ok
@@ -465,9 +465,9 @@ function osConfiguration(){
     running "Speed up Mission Control animations"
     defaults write com.apple.dock expose-animation-duration -float 0.1;ok
 
-    running "Don’t group windows by application in Mission Control"
+    #running "Don’t group windows by application in Mission Control"
     # (i.e. use the old Exposé behavior instead)
-    defaults write com.apple.dock expose-group-by-app -bool false;ok
+    #defaults write com.apple.dock expose-group-by-app -bool false;ok
 
     running "Disable Dashboard"
     defaults write com.apple.dashboard mcx-disabled -bool true;ok
@@ -511,12 +511,15 @@ function osConfiguration(){
     running "Top left screen corner → Mission Control"
     defaults write com.apple.dock wvous-tl-corner -int 2
     defaults write com.apple.dock wvous-tl-modifier -int 0;ok
-    running "Top right screen corner → Desktop"
-    defaults write com.apple.dock wvous-tr-corner -int 4
+    running "Top right screen corner → Notification Center"
+    defaults write com.apple.dock wvous-tr-corner -int 12
     defaults write com.apple.dock wvous-tr-modifier -int 0;ok
     running "Bottom right screen corner → Start screen saver"
     defaults write com.apple.dock wvous-br-corner -int 5
     defaults write com.apple.dock wvous-br-modifier -int 0;ok
+    running "Bottom left screen corner → Show application windows"
+    defaults write com.apple.dock wvous-bl-corner -int 3
+    defaults write com.apple.dock wvous-bl-modifier -int 0;ok
 
     ###############################################################################
     bot "Configuring Mail"
