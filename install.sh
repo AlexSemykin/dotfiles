@@ -17,7 +17,8 @@ wannaBlockAds
 wannaSetupGit
 
 # Install homebrew (CLI Packages)
-setupBrew
+#setupBrew
+installBrew
 
 # Skip those GUI clients, git command-line all the way
 require_brew git
