@@ -21,18 +21,18 @@ wannaSetupGit
 installBrew
 
 # Skip those GUI clients, git command-line all the way
-require_brew git
+#require_brew git
 # update zsh to latest
-#require_brew zsh
+require_brew zsh
 
 #### bu bölümü adam et. daha sonra açılacak.
-#sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-#git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v2/install)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"
 
 #
 # set zsh as the user login shell
-#changeShell
+changeShell
 
 # symlink files
 dotfilesSetup
