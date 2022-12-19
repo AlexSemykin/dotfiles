@@ -28,7 +28,7 @@ To launch fullscreen, hit `Command + Enter` in iTerm, then use `Command + d` to 
 > Note: I recommend forking this repo in case you don't like anything I do and want to set your own preferences (and pull request them!)
 
 ```bash
-git clone --recurse-submodules https://github.com/alperhankendi/dotfiles ~/.dotfiles
+git clone --recurse-submodules git@github.com:AlexSemykin/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles;
 # run this using terminal (not iTerm, lest iTerm settings get discarded on exit)
 ./install.sh
