@@ -50,7 +50,7 @@ function setupBrew(){
     if [[ $? != 0 ]]; then
     action "installing homebrew"
 
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     if [[ $? != 0 ]]; then
         error "unable to install homebrew, script $0 abort!"
         exit 2
@@ -70,6 +70,21 @@ function setupBrew(){
         ok "skipped brew package upgrades."
     fi
     fi
+}
+
+function installBrew(){
+
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)" &&
+    rm -rf /usr/local/bin/brew &&
+    rm -rf /usr/local/share/doc/homebrew &&
+    rm -rf /usr/local/share/man/man1/brew.1 &&
+    rm -rf /usr/local/share/zsh/site-functions/_brew &&
+    rm -rf /usr/local/etc/bash_completion.d/brew &&
+    rm -rf /usr/local/Homebrew &&
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && 
+    echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /Users/alex/.zprofile && 
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/alex/.zprofile && 
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 }
 
 function changeShell(){
